@@ -1,0 +1,11 @@
+{
+    "name": "BOLManager",
+    "alias": "bolmanager",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\BOLManager\\Providers\\BOLManagerServiceProvider"
+    ],
+    "files": []
+}

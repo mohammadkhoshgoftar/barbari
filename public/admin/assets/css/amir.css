@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'sahel';
+    src: url('../fonts/sahel/Sahel-FD-WOL.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sahel-bold';
+    src: url('../fonts/sahel/Sahel-Bold-FD.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'sahel' !important;
+}
+
+.bold {
+    font-family: 'sahel-bold'
+}
+
+.bg-light-teal {
+    background-color: rgb(0 168 133 / 10%);
+    color: rgba(var(--adminuiux-theme-1-rgb), 1);
+}
+
+.adminuiux-card .card:hover {
+    border-color: rgba(var(--adminuiux-theme-1-rgb), 1);
+}
+
+.nav .nav-item .nav-link i:last-child {
+    font-size: 15px !important;
+}
+
+#results {
+    li {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e9e9e9;
+        cursor: pointer;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+    }
+}
