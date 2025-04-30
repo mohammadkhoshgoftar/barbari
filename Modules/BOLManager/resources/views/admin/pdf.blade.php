@@ -6,6 +6,7 @@
     <style>
 
         body {
+            font-family: 'vazir';
             font-size: 12px;
             direction: rtl;
             text-align: right;

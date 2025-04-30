@@ -74,7 +74,7 @@ class BOLManagerRepository implements CrudRepositoryInterface
         }
     }
 
-    public function export($id)
+    public function export1($id)
     {
         $data = $this->model->findOrFail($id);
         $html = view('bolmanager::admin.pdf', compact('data'))->render();
@@ -145,5 +145,40 @@ class BOLManagerRepository implements CrudRepositoryInterface
 //            $mpdf->WriteHTML($html);
 //            return $mpdf->Output('test.pdf', 'I');
 //        }
+    }
+
+    public function export($id)
+    {
+        $data = $this->model->findOrFail($id);
+
+        $mpdf = new Mpdf([
+            'format' => 'A5',
+            'orientation' => 'L',
+            'margin_left' => 2,
+            'margin_right' => 2,
+            'margin_top' => 2,
+            'margin_bottom' => 2,
+            'mode' => 'utf-8',
+            'useOTL' => true,
+            'useKashida' => 75,
+            'fontDir' => array_merge((new \Mpdf\Config\ConfigVariables())->getDefaults()['fontDir'], [
+                public_path('export/fonts'),
+            ]),
+            'fontdata' => (new \Mpdf\Config\FontVariables())->getDefaults()['fontdata'] + [
+                    'vazir' => [
+                        'R' => 'Vazir.ttf',
+                        'useOTL' => 0xFF,
+                        'useKashida' => 75,
+                    ],
+
+                ],
+            'default_font' => 'vazir',
+        ]);
+
+        $html = view('bolmanager::admin.pdf', compact('data'))->render();
+        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+        $mpdf->WriteHTML($html);
+        return $mpdf->Output('document.pdf', 'I');
+
     }
 }
