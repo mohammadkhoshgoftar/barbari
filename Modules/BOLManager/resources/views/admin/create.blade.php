@@ -47,11 +47,11 @@
                             <input type="number" name="sender_postal_code" id="sender_postal_code" class="form-control" placeholder="کد پستی" value="{{ old('sender_postal_code') }}">
                             @error('sender_postal_code')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-3 col-lg-6">
-                            <label class="mb-2" for="sender_address">آدرس فرستنده</label>
-                            <textarea name="sender_address" id="sender_address" class="form-control" placeholder="آدرس فرستنده">{{ old('sender_address') }}</textarea>
-                            @error('sender_address')<span class="text-danger">{{ $message }}</span>@enderror
-                        </div>
+{{--                        <div class="mb-3 col-lg-6">--}}
+{{--                            <label class="mb-2" for="sender_address">آدرس فرستنده</label>--}}
+{{--                            <textarea name="sender_address" id="sender_address" class="form-control" placeholder="آدرس فرستنده">{{ old('sender_address') }}</textarea>--}}
+{{--                            @error('sender_address')<span class="text-danger">{{ $message }}</span>@enderror--}}
+{{--                        </div>--}}
 
                         <div class="col-12">
                             <h5 class="mt-4">اطلاعات گیرنده</h5>
@@ -72,11 +72,11 @@
                             <input type="number" name="receiver_postal_code" id="receiver_postal_code" class="form-control" placeholder="کد پستی" value="{{ old('receiver_postal_code') }}">
                             @error('receiver_postal_code')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-3 col-lg-6">
-                            <label class="mb-2" for="receiver_address">آدرس گیرنده</label>
-                            <textarea name="receiver_address" id="receiver_address" class="form-control" placeholder="آدرس گیرنده">{{ old('receiver_address') }}</textarea>
-                            @error('receiver_address')<span class="text-danger">{{ $message }}</span>@enderror
-                        </div>
+{{--                        <div class="mb-3 col-lg-6">--}}
+{{--                            <label class="mb-2" for="receiver_address">آدرس گیرنده</label>--}}
+{{--                            <textarea name="receiver_address" id="receiver_address" class="form-control" placeholder="آدرس گیرنده">{{ old('receiver_address') }}</textarea>--}}
+{{--                            @error('receiver_address')<span class="text-danger">{{ $message }}</span>@enderror--}}
+{{--                        </div>--}}
 
                         <div class="col-12">
                             <h5 class="mt-4">اطلاعات بارنامه</h5>
@@ -91,11 +91,11 @@
                             <input type="time" name="waybill_time" id="waybill_time" class="form-control" value="{{ old('waybill_time') }}">
                             @error('waybill_time')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-3 col-lg-6">
-                            <label class="mb-2" for="waybill_number">شماره بارنامه</label>
-                            <input type="text" name="waybill_number" id="waybill_number" class="form-control" placeholder="شماره بارنامه" value="{{ old('waybill_number') }}">
-                            @error('waybill_number')<span class="text-danger">{{ $message }}</span>@enderror
-                        </div>
+{{--                        <div class="mb-3 col-lg-6">--}}
+{{--                            <label class="mb-2" for="waybill_number">شماره بارنامه</label>--}}
+{{--                            <input type="text" name="waybill_number" id="waybill_number" class="form-control" placeholder="شماره بارنامه" value="{{ old('waybill_number') }}">--}}
+{{--                            @error('waybill_number')<span class="text-danger">{{ $message }}</span>@enderror--}}
+{{--                        </div>--}}
 
                         <div class="col-12">
                             <h5 class="mt-4">اطلاعات بیمه</h5>
@@ -145,6 +145,10 @@
                             @error('drivers.0.driver_national_code')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-3 col-lg-4">
+                            <input type="tel" name="drivers[0][driver_mobile]" class="form-control" placeholder="موبایل راننده" value="{{ old('drivers.0.driver_mobile') }}">
+                            @error('drivers.0.driver_mobile')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="mb-3 col-lg-4">
                             <input type="text" name="drivers[0][fleet_card_number]" class="form-control" placeholder="کارت ناوگان" value="{{ old('drivers.0.fleet_card_number') }}">
                             @error('drivers.0.fleet_card_number')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
@@ -156,11 +160,18 @@
                             <input type="number" name="drivers[0][driver_license_number]" class="form-control" placeholder="شماره گواهینامه" value="{{ old('drivers.0.driver_license_number') }}">
                             @error('drivers.0.driver_license_number')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-3 col-lg-4">
-                            <input type="tel" name="drivers[0][driver_mobile]" class="form-control" placeholder="موبایل راننده" value="{{ old('drivers.0.driver_mobile') }}">
-                            @error('drivers.0.driver_mobile')<span class="text-danger">{{ $message }}</span>@enderror
-                        </div>
 
+{{--                        <div class="mb-3 col-lg-4">--}}
+{{--                            <label class="mb-2" for="worker_insurance_number">شماره بیمه راننده</label>--}}
+{{--                            <input id="worker_insurance_number" type="number" name="drivers[0][worker_insurance_number]" class="form-control" placeholder="شماره بیمه راننده" value="{{ old('drivers.0.worker_insurance_number') }}">--}}
+{{--                            @error('drivers.0.worker_insurance_number')<span class="text-danger">{{ $message }}</span>@enderror--}}
+{{--                        </div>--}}
+
+{{--                        <div class="mb-3 col-lg-4">--}}
+{{--                            <label class="mb-2" for="unloading_destination">شماره بارگیری</label>--}}
+{{--                            <input type="number" name="drivers[0][driver_insurance_number]" class="form-control" placeholder="شماره بارگیری" value="{{ old('drivers.0.driver_insurance_number') }}">--}}
+{{--                            @error('drivers.0.driver_insurance_number')<span class="text-danger">{{ $message }}</span>@enderror--}}
+{{--                        </div>--}}
                         <div class="col-12">
                             <h5 class="mt-4">اطلاعات محموله</h5>
                             <hr/>
@@ -182,10 +193,24 @@
                             @error('cargos.0.cargo_packaging')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
 
+
+                        <div class="col-12">
+                            <h5 class="mt-4">هزینه باربری</h5>
+                            <hr/>
+                        </div>
+                        <div class="mb-3 col-lg-4">
+                            <input type="text" name="rent_cost" id="rent_cost" class="form-control" placeholder="کرایه" value="{{ old('rent_cost') }}">
+                            @error('rent_cost')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="mb-3 col-lg-4">
+                            <input type="text" name="labor_cost" id="labor_cost" class="form-control" placeholder="کارگری" value="{{ old('labor_cost') }}">
+                            @error('labor_cost')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+
                         <div class="mb-3 col-12 text-start">
                             <button type="submit" class="btn btn-theme">
                                 <i class="fal fa-add"></i>
-                                ثبت بارنامه
+                                ثبت و چاپ بارنامه
                             </button>
                         </div>
                     </div>
@@ -199,6 +224,20 @@
     <script>
         const priceInput = document.getElementById('insurance_value');
         priceInput.addEventListener('input', function () {
+            let rawValue = this.value.replace(/,/g, '').replace(/[^0-9]/g, '');
+            let formattedValue = rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            this.value = formattedValue;
+        });
+
+        const priceInput2 = document.getElementById('rent_cost');
+        priceInput2.addEventListener('input', function () {
+            let rawValue = this.value.replace(/,/g, '').replace(/[^0-9]/g, '');
+            let formattedValue = rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            this.value = formattedValue;
+        });
+
+        const priceInput3 = document.getElementById('labor_cost');
+        priceInput3.addEventListener('input', function () {
             let rawValue = this.value.replace(/,/g, '').replace(/[^0-9]/g, '');
             let formattedValue = rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             this.value = formattedValue;

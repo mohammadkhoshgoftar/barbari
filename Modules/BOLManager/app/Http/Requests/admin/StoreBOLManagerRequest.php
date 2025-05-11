@@ -27,12 +27,12 @@ class StoreBOLManagerRequest extends FormRequest
             'sender_name' => ['required', 'string', 'max:255'],
             'sender_national_code' => ['required', 'string', 'max:20'],
             'sender_postal_code' => ['required', 'string', 'max:20'],
-            'sender_address' => ['required', 'string'],
+//            'sender_address' => ['required', 'string'],
 
             'receiver_name' => ['required', 'string', 'max:255'],
             'receiver_national_code' => ['required', 'string', 'max:20'],
             'receiver_postal_code' => ['required', 'string', 'max:20'],
-            'receiver_address' => ['required', 'string'],
+//            'receiver_address' => ['required', 'string'],
 
             'waybill_date' => ['required', 'date'],
             'waybill_time' => ['required', 'date_format:H:i'],
@@ -42,6 +42,7 @@ class StoreBOLManagerRequest extends FormRequest
             'insurance_company_name' => ['required', 'string', 'max:255'],
             'insurance_value' => ['required', 'numeric', 'min:0'],
 
+
             'drivers' => ['required', 'array'],
             'drivers.*.driver_national_code' => ['required', 'string', 'max:20'],
             'drivers.*.driver_name' => ['required', 'string', 'max:255'],
@@ -49,6 +50,8 @@ class StoreBOLManagerRequest extends FormRequest
             'drivers.*.fleet_plate' => ['required', 'string', 'max:50'],
             'drivers.*.driver_license_number' => ['required', 'string', 'max:50'],
             'drivers.*.driver_mobile' => ['required', 'string', 'max:20'],
+//            'drivers.*.driver_insurance_number' => ['required', 'string', 'max:255'],
+//            'drivers.*.worker_insurance_number' => ['required', 'string', 'max:255'],
 
             'cargos' => ['required', 'array'],
             'cargos.*.cargo_name' => ['required', 'string', 'max:255'],
@@ -56,14 +59,20 @@ class StoreBOLManagerRequest extends FormRequest
             'cargos.*.cargo_quantity' => ['required', 'integer', 'min:1'],
             'cargos.*.cargo_packaging' => ['required', 'string', 'max:255'],
 
+
             'loading_origin' => ['required', 'string', 'max:255'],
             'unloading_destination' => ['required', 'string', 'max:255'],
+
+            'rent_cost' => ['required', 'numeric', 'min:0'],
+            'labor_cost' => ['required', 'numeric', 'min:0'],
         ];
     }
     protected function prepareForValidation(): void
     {
         $this->merge([
             'insurance_value' => str_replace(',', '', $this->insurance_value),
+            'labor_cost' => str_replace(',', '', $this->labor_cost),
+            'rent_cost' => str_replace(',', '', $this->rent_cost),
         ]);
     }
 }

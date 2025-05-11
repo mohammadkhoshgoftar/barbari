@@ -115,4 +115,48 @@ return [
     'uploaded' => 'بارگذاری :attribute انجام نشد.',
     'url' => ':attribute باید یک URL معتبر باشد.',
     'uuid' => ':attribute باید یک UUID معتبر باشد.',
+
+    'attributes' => [
+        'email' => 'ایمیل',
+        'password' => 'رمز عبور',
+        'name' => 'نام',
+        'sender_name' => 'نام فرستنده',
+        'sender_national_code' => 'کد ملی فرستنده',
+        'sender_postal_code' => 'کد پستی فرستنده',
+        'sender_address' => 'آدرس فرستنده',
+
+        'receiver_name' => 'نام گیرنده',
+        'receiver_national_code' => 'کد ملی گیرنده',
+        'receiver_postal_code' => 'کد پستی گیرنده',
+        'receiver_address' => 'آدرس گیرنده',
+
+        'waybill_date' => 'تاریخ بارنامه',
+        'waybill_time' => 'زمان بارنامه',
+        'waybill_number' => 'شماره بارنامه',
+
+        'insurance_contract_number' => 'شماره قرارداد بیمه',
+        'insurance_company_name' => 'نام شرکت بیمه',
+        'insurance_value' => 'ارزش بیمه',
+
+        'drivers' => 'رانندگان',
+        'drivers.*.driver_national_code' => 'کد ملی راننده',
+        'drivers.*.driver_name' => 'نام راننده',
+        'drivers.*.fleet_card_number' => 'شماره کارت ناوگان',
+        'drivers.*.fleet_plate' => 'پلاک ناوگان',
+        'drivers.*.driver_license_number' => 'شماره گواهینامه راننده',
+        'drivers.*.driver_mobile' => 'شماره موبایل راننده',
+        'drivers.*.driver_insurance_number' => 'شماره بیمه راننده',
+        'drivers.*.worker_insurance_number' => 'شماره بیمه کارگر',
+
+        'cargos' => 'بارها',
+        'cargos.*.cargo_name' => 'نام بار',
+        'cargos.*.cargo_weight' => 'وزن بار',
+        'cargos.*.cargo_quantity' => 'تعداد بار',
+        'cargos.*.cargo_packaging' => 'بسته‌بندی بار',
+
+        'loading_origin' => 'مبدأ بارگیری',
+        'unloading_destination' => 'مقصد تخلیه',
+        'rent_cost' => 'کرایه',
+        'labor_cost' => 'کارگری',
+    ],
 ];

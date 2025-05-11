@@ -2,12 +2,12 @@
 
 namespace Modules\BOLManager\app\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use Modules\BOLManager\app\Http\Requests\admin\StoreBOLManagerRequest;
 use Modules\BOLManager\app\Http\Requests\admin\UpdateBOLManagerRequest;
-use Modules\BOLManager\app\Models\Waybills;
+use Modules\BOLManager\app\Http\Requests\admin\StoreBOLManagerRequest;
 use Modules\BOLManager\app\Patterns\Repository\BOLManagerRepository;
+use Modules\BOLManager\app\Models\Waybills;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Controllers\Controller;
 
 class BOLManagerController extends Controller
 {
@@ -42,6 +42,10 @@ class BOLManagerController extends Controller
                                 <i class="fal fa-pen-to-square"></i>
                                 ویرایش
                                 </a></li>
+                                <li><a class="dropdown-item" href="'.route('admin.bol.export', $product->id).'">
+                                <i class="fal fa-download"></i>
+                                دانلود بارنامه
+                                </a></li>
                                 <li><a class="dropdown-item theme-red" href="'.route('admin.bol.destroy', $product->id).'">
                                 <i class="fal fa-trash"></i>
                                 حذف
@@ -51,7 +55,7 @@ class BOLManagerController extends Controller
             })
 
             ->editColumn('drivers', function ($product) {
-                return 'علی';
+                return $product->drivers[0]['driver_name'];
             })
 
             ->rawColumns(['action'])
@@ -82,8 +86,8 @@ class BOLManagerController extends Controller
 
     public function edit($id)
     {
-        $data = $this->repository->getItemById($id)->first();
-        return view($this->path . 'edit', compact('data'));
+        $item = $this->repository->getItemById($id)->first();
+        return view($this->path . 'edit', compact('item'));
     }
 
     public function update(UpdateBOLManagerRequest $request, $id)

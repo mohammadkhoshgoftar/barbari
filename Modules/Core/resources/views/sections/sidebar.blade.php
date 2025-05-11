@@ -38,19 +38,6 @@
                     @endforeach
                 @endif
             @endforeach
-
-            <li class="nav-item">
-                <a href="{{route('contactUs')}}" class="nav-link">
-                    <i class="fa-light fa-message ms-3"></i>
-                    <span class="menu-name">ارتباط باما</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('aboutUs')}}" class="nav-link">
-                    <i class="fa-light fa-ticket-simple ms-3"></i>
-                    <span class="menu-name">درباره ما</span>
-                </a>
-            </li>
         </ul>
     </div>
 </div>

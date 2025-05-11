@@ -4,11 +4,11 @@
             <button class="btn btn-link btn-square sidebar-toggler" type="button" onclick="initSidebar()"><i
                     class="sidebar-svg" data-feather="menu"></i></button>
             <a class="navbar-brand align-items-center" href="{{ route('dashboard') }}">
-                <img data-bs-img="light"
-                    src="{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt=""> <img
-                    data-bs-img="dark" src="a{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt="">
+{{--                <img data-bs-img="light"--}}
+{{--                    src="{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt=""> <img--}}
+{{--                    data-bs-img="dark" src="a{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt="">--}}
                 <h5 class="fw-bold mb-0">
-                    آقای دوربین
+                    سیستم مدیریت باربری
                 </h5>
             </a>
             <div class="ms-auto"></div>

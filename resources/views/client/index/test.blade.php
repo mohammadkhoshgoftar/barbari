@@ -38,7 +38,7 @@
                      src="{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt=""> <img
                         data-bs-img="dark" src="a{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt="">
                 <h5 class="fw-bold mb-0">
-                    آقای دوربین
+                    سیستم مدیریت باربری
                 </h5>
             </a>
             <div class="ms-auto"></div>

@@ -8,7 +8,7 @@
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item bi"><a href="{{ route('dashboard') }}">داشبورد</a></li>
                     <i class="fa fa-angle-left"></i>
-                    <li class="breadcrumb-item bi"><a href="javascript:void(0)">محصولات</a></li>
+                    <li class="breadcrumb-item bi"><a href="javascript:void(0)">بارنامه ها</a></li>
                 </ol>
             </nav>
         </div>
@@ -18,7 +18,7 @@
             <div class="bg-teal text-white px-3 py-1 rounded">
                 <i class="fas fa-info"></i>
             </div>
-            <h6>در این قسمت میتوانید محصول را مشاهده کنید</h6>
+            <h6>در این قسمت میتوانید بارنامه ها را مشاهده کنید</h6>
         </div>
         <div class="card adminuiux-card mb-3">
             @php

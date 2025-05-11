@@ -26,7 +26,7 @@ Route::prefix('bol')
             Route::post('update/{id}','update')->name('admin.bol.update')->middleware(['can:update-bol']);
             Route::get('delete/{id}','destroy')->name('admin.bol.destroy')->middleware(['can:delete-bol']);
 
-            Route::get('export/{id}','exportPdf')->name('admin.bol.destroy')->middleware(['can:delete-bol']);
+            Route::get('export/{id}','exportPdf')->name('admin.bol.export')->middleware(['can:index-bol']);
 
             Route::Post('search','search')->name('admin.bol.search');
         });

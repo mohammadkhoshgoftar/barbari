@@ -30,7 +30,8 @@ class BOLManagerRepository implements CrudRepositoryInterface
     public function storeToDb($validatedData): bool
     {
         try {
-            $this->model->create($validatedData);
+            $data =$this->model->create($validatedData);
+            $this->export($data->id);
             return true;
         } catch (\Exception $exception) {
             return false;
@@ -42,6 +43,7 @@ class BOLManagerRepository implements CrudRepositoryInterface
         try {
             $product = $this->model->find($id);
             $product->update($validatedData);
+            $this->export($product->id);
             return true;
         } catch (\Exception $exception) {
             return false;
@@ -152,6 +154,7 @@ class BOLManagerRepository implements CrudRepositoryInterface
         $data = $this->model->findOrFail($id);
 
         $mpdf = new Mpdf([
+            'tempDir' => public_path('export/tmp'),
             'format' => 'A5',
             'orientation' => 'L',
             'margin_left' => 2,
@@ -175,7 +178,7 @@ class BOLManagerRepository implements CrudRepositoryInterface
             'default_font' => 'vazir',
         ]);
 
-        $html = view('bolmanager::admin.pdf', compact('data'))->render();
+       /*return */$html = view('bolmanager::admin.pdf', compact('data'))->render();
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
         $mpdf->WriteHTML($html);
         return $mpdf->Output('document.pdf', 'I');

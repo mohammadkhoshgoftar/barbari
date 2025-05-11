@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>آقای دوربین</title>
+    <title>سیستم مدیریت باربری</title>
     <link rel="icon" type="image/png" href="{{asset('admin/images/mrDorbinLogo.jpg')}}">
     @include('core::sections.style')
 
@@ -19,7 +19,7 @@
             <div class="col-12 mb-auto pt-4"></div>
             <div class="col-auto">
                 <img src="{{asset('admin/assets/images/mrDorbinLogo.jpg')}}" alt="" class="height-60 mb-3">
-                <p class="h6 mb-0">آقای دوربین</p>
+                <p class="h6 mb-0">سیستم مدیریت باربری</p>
                 {{--                    <p class="h3 mb-4">Digi Clinic</p>--}}
                 <div class="loaderplus mb-2"></div>
             </div>
