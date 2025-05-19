@@ -155,7 +155,7 @@ class BOLManagerRepository implements CrudRepositoryInterface
 
         $mpdf = new Mpdf([
             'tempDir' => public_path('export/tmp'),
-            'format' => 'A5',
+            'format' => 'A4',
             'orientation' => 'L',
             'margin_left' => 2,
             'margin_right' => 2,

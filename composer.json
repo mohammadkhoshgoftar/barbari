@@ -14,6 +14,7 @@
         "laravel/framework": "^11.9",
         "laravel/passport": "^12.0",
         "laravel/tinker": "^2.9",
+        "morilog/jalali": "^3.4",
         "mpdf/mpdf": "^8.2",
         "nwidart/laravel-modules": "^11.0",
         "owen-it/laravel-auditing": "^13.6",
