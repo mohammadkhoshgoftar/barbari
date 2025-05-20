@@ -3,6 +3,7 @@
 namespace Modules\BOLManager\app\Http\Requests\admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\Core\app\helper\HelperMethods;
 
 class StoreBOLManagerRequest extends FormRequest
 {
@@ -34,7 +35,7 @@ class StoreBOLManagerRequest extends FormRequest
             'receiver_postal_code' => ['required', 'string', 'max:20'],
 //            'receiver_address' => ['required', 'string'],
 
-            'waybill_date' => ['required', 'date'],
+            'waybill_date' => ['required'],
             'waybill_time' => ['required', 'date_format:H:i'],
 //            'waybill_number' => ['required', 'string', 'max:255', 'unique:waybills,waybill_number'],
 
@@ -69,10 +70,37 @@ class StoreBOLManagerRequest extends FormRequest
     }
     protected function prepareForValidation(): void
     {
-        $this->merge([
-            'insurance_value' => str_replace(',', '', $this->insurance_value),
-            'labor_cost' => str_replace(',', '', $this->labor_cost),
-            'rent_cost' => str_replace(',', '', $this->rent_cost),
-        ]);
+        $data = $this->all();
+
+        $convertNumber = fn($value) => HelperMethods::convertPersianToEnglishNumbers(str_replace(',', '', $value));
+
+        // فیلدهای ساده
+        $data['insurance_value'] = $convertNumber($data['insurance_value'] ?? 0);
+        $data['labor_cost'] = $convertNumber($data['labor_cost'] ?? 0);
+        $data['rent_cost'] = $convertNumber($data['rent_cost'] ?? 0);
+
+        // تبدیل درایورها
+        if (!empty($data['drivers']) && is_array($data['drivers'])) {
+            foreach ($data['drivers'] as $i => $driver) {
+                if (isset($driver['driver_mobile'])) {
+                    $data['drivers'][$i]['driver_mobile'] = $convertNumber($driver['driver_mobile']);
+                }
+            }
+        }
+
+        // تبدیل کارگوها
+        if (!empty($data['cargos']) && is_array($data['cargos'])) {
+            foreach ($data['cargos'] as $i => $cargo) {
+                if (isset($cargo['cargo_weight'])) {
+                    $data['cargos'][$i]['cargo_weight'] = $convertNumber($cargo['cargo_weight']);
+                }
+                if (isset($cargo['cargo_quantity'])) {
+                    $data['cargos'][$i]['cargo_quantity'] = $convertNumber($cargo['cargo_quantity']);
+                }
+            }
+        }
+
+        $this->replace($data);
     }
+
 }

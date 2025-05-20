@@ -111,7 +111,7 @@
                         </td>
                         <td style="border: none; width: 50%; padding: 4px;">
                             <strong>تاریخ
-                                صدور:</strong> {{ \Morilog\Jalali\Jalalian::fromFormat('Y-m-d', $data->waybill_date)->format('Y/m/d') }}
+                                صدور:</strong> {{  $data->waybill_date }}
                             <br>
                             <strong>شرکت بیمه:</strong> {{ $data->insurance_company_name }}
                         </td>

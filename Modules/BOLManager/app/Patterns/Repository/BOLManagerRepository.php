@@ -34,6 +34,7 @@ class BOLManagerRepository implements CrudRepositoryInterface
             $this->export($data->id);
             return true;
         } catch (\Exception $exception) {
+            dd($exception->getMessage());
             return false;
         }
     }
